@@ -3,22 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather</title>
-</head>
-    <body>
-<form class="navbar-form navbar-right" role="search" action="javascript:getWeather()">
-   <div class="form-group">
-<input id="city" type="text" class="form-control" placeholder="Enter City" required>
-   </div>
-  <button type="submit" class="btn btn-default">Get Forecast</button>
-                    </form>
-  <div class="container" hidden>
-  <div class="jumbotron">
-            </div>
-            </div>
-            <div id="forecast" class="row">
-            </div>
+     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-        <script>
+       <script>
       function getWeather() {
     var location = $('#city').val();
     $.get('https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + location + '")&format=json', function (data) {
@@ -33,6 +22,21 @@
         }
     });
 }
-</script>
+</script></head>
+    <body>
+<form class="navbar-form navbar-right" role="search" action="javascript:getWeather()">
+   <div class="form-group">
+<input id="city" type="text" class="form-control" placeholder="Enter City" required>
+   </div>
+  <button type="submit" class="btn btn-default">Get Forecast</button>
+                    </form>
+  <div class="container" hidden>
+  <div class="jumbotron">
+            </div>
+            </div>
+            <div id="forecast" class="row">
+            </div>
+
+ 
 </body>
 </html>
