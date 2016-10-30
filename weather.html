@@ -6,7 +6,30 @@
      <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
       <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script>
+    
+    <style type="text/css">
+    /* CSS code */
+    body {
+        background-image:url("weather.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% auto;    
+    }
+    #fore
+    {
+    	float:center;
+    	margin:-70px 110px;
+    	font-size:90%;
+    }
+    #city
+    {
+        float:center;
+        margin:-70px 110px;
+        font-size:90%;
+    }
+  
+    </style>
+     <script>
+         /* jQuery code */
       function getWeather() {
       var location = $('#city').val();
       $.get('https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="' + location + '")&format=json', function (data) {
